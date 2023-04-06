@@ -8,47 +8,49 @@
     tools:context=".SignUp">
 
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_marginTop="200dp"
-        android:layout_marginStart="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnSignUp"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical">
+
         <EditText
             android:id="@+id/edtPhone"
-            android:autofillHints="phoneMobile"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="0901234567"
-            android:textColor="@color/black"
+            android:layout_height="50dp"
+            android:autofillHints="phoneMobile"
             android:inputType="phone"
-            />
+            android:text=""
+            android:textColor="@color/black" />
+
         <EditText
             android:id="@+id/edtName"
-            android:autofillHints="name"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Tung"
-            android:textColor="@color/black"
+            android:layout_height="50dp"
+            android:autofillHints="name"
             android:inputType="textPersonName"
-            />
+            android:text=""
+            android:textColor="@color/black" />
+
         <EditText
             android:id="@+id/edtPassword"
-            android:autofillHints="password"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="1234"
-            android:textColor="@color/black"
+            android:layout_height="50dp"
+            android:autofillHints="password"
             android:inputType="numberPassword"
-            />
+            android:text=""
+            android:textColor="@color/black" />
     </LinearLayout>
 
     <Button
         android:id="@+id/btnSignUp"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
+
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="275dp"
+        android:backgroundTint="@color/btnSignUp"
         android:text="Sign Up"
         android:textColor="@color/white" />
 </RelativeLayout>

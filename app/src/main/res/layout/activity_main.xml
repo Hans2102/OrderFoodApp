@@ -6,17 +6,33 @@
     android:layout_height="match_parent"
     android:background="@drawable/background"
     tools:context=".MainActivity">
-    <ImageView
-        android:layout_width="match_parent"
+<!--    <ImageView-->
+<!--        android:layout_width="match_parent"-->
 
-        android:layout_height="248dp"
+<!--        android:layout_height="248dp"-->
+<!--        android:layout_above="@+id/txtSlogan"-->
+<!--        android:layout_alignParentStart="true"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_marginStart="2dp"-->
+<!--        android:layout_marginTop="100dp"-->
+<!--        android:layout_marginBottom="0dp"-->
+<!--        android:background="@drawable/logo_tst" />-->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_above="@+id/txtSlogan"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginBottom="0dp"
-        android:background="@drawable/logo_tst" />
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="108dp"
+        android:fontFamily="@font/barbariskarough2_regular"
+        android:gravity="center"
+        android:text="Tst Food"
+        android:textColor="@color/black"
+        android:textSize="60dp" />
 
     <TextView
         android:id="@+id/txtSlogan"
@@ -30,7 +46,7 @@
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="298dp"
         android:gravity="center"
-        android:text="Thiên đường ấm thực Mua 1 tặng 1 tính tiền 2"
+        android:text="Okela"
         android:textColor="@color/black"
         android:textSize="35dp" />
 
@@ -47,6 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Sign Up"
+            android:backgroundTint="@color/btnSignUp"
             android:textColor="@color/white" />
 
         <Button
@@ -55,6 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Sign In"
+            android:backgroundTint="@color/btnSignIn"
             android:textColor="@android:color/white" />
     </LinearLayout>
 

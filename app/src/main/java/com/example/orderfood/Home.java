@@ -64,7 +64,8 @@ public class Home extends AppCompatActivity
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener((view) ->{
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+            Intent cartIntent = new Intent(Home.this, Cart.class);
+            startActivity(cartIntent);
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -93,7 +94,7 @@ public class Home extends AppCompatActivity
             @Override
             protected void populateViewHolder(MenuViewHolder viewHolder, Category model, int position) {
                 viewHolder.txtMenuName.setText(model.getName());
-                Picasso.with(getBaseContext()).load(model.getImage()).into(viewHolder.imageView);
+                Picasso.get().load(model.getImage()).into(viewHolder.imageView);
                 Category clickItem = model;
                 viewHolder.setItemClickListener(new ItemClickListener() {
                     @Override
@@ -102,7 +103,6 @@ public class Home extends AppCompatActivity
                         Intent foodList = new Intent(Home.this, FoodList.class);
                         foodList.putExtra("CategoryId", adapter.getRef(position).getKey());
                         startActivity(foodList);
-                        finish();
                     }
                 });
             }

@@ -50,6 +50,11 @@ public class FoodList extends AppCompatActivity {
             loadlistFood(categoryId);
         }
     }
+//    @Override
+//    public void onBackPressed() {
+//        super.onBackPressed();
+////        finish(); // closes the current activity
+//    }
 
     private void loadlistFood(String categoryId) {
         adapter = new FirebaseRecyclerAdapter<Food, FoodViewHolder>(Food.class, R.layout.food_item,
@@ -58,7 +63,7 @@ public class FoodList extends AppCompatActivity {
             @Override
             protected void populateViewHolder(FoodViewHolder foodViewHolder, Food food, int i) {
                 foodViewHolder.food_name.setText(food.getName());
-                Picasso.with(getBaseContext()).load(food.getImage()).into(foodViewHolder.food_image);
+                Picasso.get().load(food.getImage()).into(foodViewHolder.food_image);
                 final Food local = food;
                 foodViewHolder.setItemClickListener(new ItemClickListener() {
                     @Override
@@ -66,7 +71,6 @@ public class FoodList extends AppCompatActivity {
                         Intent foodDetail = new Intent(FoodList.this, FoodDetail.class);
                         foodDetail.putExtra("FoodId", adapter.getRef(position).getKey()); //send food id to new act
                         startActivity(foodDetail);
-                        finish();
                     }
                 });
             }

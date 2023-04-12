@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/background2"
     tools:context=".SignUp">
 
     <LinearLayout
@@ -12,8 +12,14 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/btnSignUp"
         android:layout_marginBottom="20dp"
+        android:layout_marginHorizontal="5dp"
         android:orientation="vertical">
-
+        <TextView
+            android:text="Tên đăng nhập:"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
         <EditText
             android:id="@+id/edtPhone"
             android:layout_width="match_parent"
@@ -22,7 +28,12 @@
             android:inputType="phone"
             android:text=""
             android:textColor="@color/black" />
-
+        <TextView
+            android:text="Tên người dùng:"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
         <EditText
             android:id="@+id/edtName"
             android:layout_width="match_parent"
@@ -31,7 +42,12 @@
             android:inputType="textPersonName"
             android:text=""
             android:textColor="@color/black" />
-
+        <TextView
+            android:text="Mật khẩu:"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
         <EditText
             android:id="@+id/edtPassword"
             android:layout_width="match_parent"
@@ -42,15 +58,15 @@
             android:textColor="@color/black" />
     </LinearLayout>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnSignUp"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-
+        android:layout_marginHorizontal="15dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="275dp"
-        android:backgroundTint="@color/btnSignUp"
+        android:background="@drawable/button3"
         android:text="Sign Up"
         android:textColor="@color/white" />
 </RelativeLayout>

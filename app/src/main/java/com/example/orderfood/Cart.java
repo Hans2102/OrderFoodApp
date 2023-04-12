@@ -83,7 +83,7 @@ public class Cart extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 Request request = new Request(
                         Common.currentUser.getPhone(),
-                        Common.currentUser.getPassword(),
+                        Common.currentUser.getName(),
                         edtAddress.getText().toString(),
                         txtTotalPrice.getText().toString(),
                         cart

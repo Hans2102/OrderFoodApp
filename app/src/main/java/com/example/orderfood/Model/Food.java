@@ -23,6 +23,8 @@ public class Food {
         Name = name;
     }
 
+
+
     public String getImage() {
         return Image;
     }

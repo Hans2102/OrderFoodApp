@@ -40,29 +40,17 @@ public class OrderStatus extends AppCompatActivity {
     }
 
     private void loadOrders(String phone) {
-        adapter = new FirebaseRecyclerAdapter<Request, OrderViewHolder>(
-                Request.class,
-                R.layout.order_layout,
+        adapter = new FirebaseRecyclerAdapter<Request, OrderViewHolder>(Request.class,R.layout.order_layout,
                 OrderViewHolder.class,
-                requests.orderByChild("phone")
-                        .equalTo(phone)
-        ) {
+                requests.orderByChild("phone").equalTo(phone)) {
             @Override
             protected void populateViewHolder(OrderViewHolder viewHolder, Request model, int position) {
 
                 viewHolder.txtOrderId.setText(adapter.getRef(position).getKey());
-//                viewHolder.txtOrderStatus.setText(convertCodeToStatus(model.getStatus()));
                 viewHolder.txtOrderAddress.setText(model.getAddress());
                 viewHolder.txtOrderPhone.setText(model.getPhone());
             }
         };
         recyclerView.setAdapter(adapter);
     }
-
-//    private String convertCodeToStatus(String status) {
-//        if(status.equals("0"))
-//            return "Đặt hàng thành công!";
-//        else
-//            return "0";
-//    }
 }

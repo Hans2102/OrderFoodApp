@@ -11,14 +11,13 @@ import com.example.orderfood.R;
 
 public class OrderViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-    public TextView txtOrderId,txtOrderPhone,txtOrderAddress,txtOrderStatus;
+    public TextView txtOrderId,txtOrderPhone,txtOrderAddress;
     private ItemClickListener itemClickListener;
     public OrderViewHolder(@NonNull View itemView) {
         super(itemView);
 
         txtOrderAddress = itemView.findViewById(R.id.order_address);
         txtOrderId = itemView.findViewById(R.id.order_id);
-//        txtOrderStatus = itemView.findViewById(R.id.order_status);
         txtOrderPhone = itemView.findViewById(R.id.order_phone);
 
         itemView.setOnClickListener(this);
@@ -31,6 +30,6 @@ public class OrderViewHolder extends RecyclerView.ViewHolder implements View.OnC
 
     @Override
     public void onClick(View v) {
-//        itemClickListener.onclick(v,getAdapterPosition(), false);
+        itemClickListener.onclick(v,getBindingAdapterPosition(), false);
     }
 }

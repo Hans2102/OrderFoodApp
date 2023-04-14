@@ -3,6 +3,7 @@ package com.example.orderfood;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -27,7 +28,7 @@ public class FoodDetail extends AppCompatActivity {
     TextView food_name, food_price, food_description;
     ImageView food_image;
     CollapsingToolbarLayout collapsingToolbarLayout;
-    Button btnCart;
+    Button btnCart,btnFoodBack;
     ElegantNumberButton numberButton;
 
     Food currentFood;
@@ -43,6 +44,14 @@ public class FoodDetail extends AppCompatActivity {
         foods = database.getReference("Foods");
 
         numberButton  =findViewById(R.id.number_button);
+        btnFoodBack = findViewById(R.id.btnFoodBack);
+        btnFoodBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent foodBack = new Intent(FoodDetail.this, Home.class);
+                startActivity(foodBack);
+            }
+        });
         btnCart = findViewById(R.id.btnCart);
         btnCart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +66,7 @@ public class FoodDetail extends AppCompatActivity {
                 ));
 
                 Toast.makeText(FoodDetail.this, "Thêm vào giỏ hàng", Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
 
@@ -75,11 +85,6 @@ public class FoodDetail extends AppCompatActivity {
             getDetailFood(foodId);
 
     }
-//    @Override
-//    public void onBackPressed() {
-//        super.onBackPressed();
-//        finish(); // closes the current activity
-//    }
 
     private void getDetailFood(String foodId) {
         foods.child(foodId).addValueEventListener(new ValueEventListener() {

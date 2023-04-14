@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -34,7 +35,7 @@ public class Cart extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference requests;
     TextView txtTotalPrice;
-    Button btnPlace;
+    Button btnPlace, btnCartBack;
 
     List<Order> cart = new ArrayList<>();
 
@@ -53,6 +54,14 @@ public class Cart extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
         txtTotalPrice = findViewById(R.id.total);
+        btnCartBack = findViewById(R.id.btnCartBack);
+        btnCartBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Cart.this, Home.class);
+                startActivity(i);
+            }
+        });
         btnPlace = findViewById(R.id.btnPlaceOrder);
 
         btnPlace.setOnClickListener(new View.OnClickListener() {
@@ -66,8 +75,8 @@ public class Cart extends AppCompatActivity {
 
     private void showAlertDialog() {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(Cart.this);
-        alertDialog.setTitle("One more step!");
-        alertDialog.setMessage("Nhap dia chi:");
+        alertDialog.setTitle("Bước cuối cùng!");
+        alertDialog.setMessage("Nhập địa chỉ giao hàng:");
 
         final EditText edtAddress = new EditText(Cart.this);
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
@@ -93,7 +102,7 @@ public class Cart extends AppCompatActivity {
                 requests.child(String.valueOf(System.currentTimeMillis())).setValue(request);
 
                 new Database(getBaseContext()).cleanCart();
-                Toast.makeText(Cart.this, "Thank you, Order Place", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Cart.this, "Đặt hàng thành công", Toast.LENGTH_LONG).show();
                 finish();
             }
         });

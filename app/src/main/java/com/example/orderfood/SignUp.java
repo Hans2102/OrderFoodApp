@@ -27,6 +27,8 @@ public class SignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         edtName = findViewById(R.id.edtName);
         edtPhone = findViewById(R.id.edtPhone);
         edtPassword = findViewById(R.id.edtPassword);
@@ -40,27 +42,21 @@ public class SignUp extends AppCompatActivity {
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final ProgressDialog mDialog = new ProgressDialog(SignUp.this);
-                mDialog.setMessage("Please Wait...");
-                mDialog.show();
 
                 table_user.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if(snapshot.child(edtPhone.getText().toString()).exists())
                         {
-                            mDialog.dismiss();
-                            Toast.makeText(SignUp.this, "User already exists!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignUp.this, "Tài khoản đã tồn tại!", Toast.LENGTH_SHORT).show();
                         }
                         else
                         {
-                            mDialog.dismiss();
                             User user = new User(edtName.getText().toString(), edtPassword.getText().toString());
                             table_user.child(edtPhone.getText().toString()).setValue(user);
-                            Toast.makeText(SignUp.this, "User created successfully!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignUp.this, "Tạo tài khoản thành công!", Toast.LENGTH_SHORT).show();
                             finish();
                         }
-
                     }
 
                     @Override

@@ -54,7 +54,7 @@
                 android:orientation="horizontal">
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btnBack"
+                    android:id="@+id/btnCartBack"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="5dp"

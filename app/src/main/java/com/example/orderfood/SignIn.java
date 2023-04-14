@@ -27,6 +27,8 @@ public class SignIn extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         edtPass = findViewById(R.id.edtPassword);
         edtPhone = findViewById(R.id.edtPhone);
         btnSignIn = findViewById(R.id.btnSignIn);
@@ -37,9 +39,6 @@ public class SignIn extends AppCompatActivity {
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ProgressDialog mDialog = new ProgressDialog(SignIn.this);
-                mDialog.setMessage("waiting...");
-                mDialog.show();
 
                 table_user.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -47,7 +46,6 @@ public class SignIn extends AppCompatActivity {
                         //get user infor
                         if(snapshot.child(edtPhone.getText().toString()).exists())
                         {
-                            mDialog.dismiss();
                             User user = snapshot.child(edtPhone.getText().toString()).getValue(User.class);
 
                             user.setPhone(edtPhone.getText().toString());
@@ -56,18 +54,16 @@ public class SignIn extends AppCompatActivity {
                                 Intent homeIntent = new Intent(SignIn.this, Home.class);
                                 Common.currentUser = user;
                                 startActivity(homeIntent);
-//                                finish();
                             }
                             else
                             {
-                                Toast.makeText(SignIn.this, "Sai mat khau", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SignIn.this, "Sai mật khẩu!", Toast.LENGTH_SHORT).show();
                             }
 
                         }
                         else
                         {
-                            mDialog.dismiss();
-                            Toast.makeText(SignIn.this, "Tai khoan chua duoc tao", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignIn.this, "Tài khoản không tồn tại!", Toast.LENGTH_SHORT).show();
                         }
 
                     }

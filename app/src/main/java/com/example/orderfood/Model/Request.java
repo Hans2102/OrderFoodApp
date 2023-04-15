@@ -7,7 +7,6 @@ public class Request {
     private String name;
     private String address;
     private String total;
-    private String status;
     private List<Order> foods;
 
     public Request() {

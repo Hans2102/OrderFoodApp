@@ -20,6 +20,8 @@
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:text="TST"
+        android:textStyle="bold"
+        android:textSize="25sp"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
 

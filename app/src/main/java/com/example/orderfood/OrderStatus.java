@@ -47,8 +47,10 @@ public class OrderStatus extends AppCompatActivity {
             protected void populateViewHolder(OrderViewHolder viewHolder, Request model, int position) {
 
                 viewHolder.txtOrderId.setText(adapter.getRef(position).getKey());
+                viewHolder.txtOrderName.setText(model.getName());
                 viewHolder.txtOrderAddress.setText(model.getAddress());
                 viewHolder.txtOrderPhone.setText(model.getPhone());
+                viewHolder.txtOrderPrice.setText(model.getTotal());
             }
         };
         recyclerView.setAdapter(adapter);
